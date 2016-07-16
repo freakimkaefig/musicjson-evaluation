@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for entry in $1*.krn; do
+	output=${entry%.*}.xml
+	#echo $entry
+	#echo $output
+	hum2xml $entry > $output
+done
