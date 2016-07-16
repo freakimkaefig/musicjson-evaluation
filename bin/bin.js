@@ -1,5 +1,6 @@
 var commander = require('commander');
 var converter = require('../converter');
+var similarity = require('../similarity');
 
 var cmdValue;
 var inputValue;
@@ -35,6 +36,10 @@ if (typeof outputValue === 'undefined') {
 switch (cmdValue) {
   case 'convert':
     converter.convert(inputValue, outputValue);
+    break;
+
+  case 'similarity':
+    similarity.calculate(inputValue, outputValue);
     break;
 
   default:
