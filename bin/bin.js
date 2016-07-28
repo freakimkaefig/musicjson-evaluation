@@ -8,11 +8,13 @@ var outputValue;
 
 commander
   .version(require('../package.json').version)
-  .arguments('<cmd> [input] [output]')
-  .action(function (cmd, input, output) {
+  .usage('node bin.js <cmd> [input] [output] [search]')
+  .arguments('<cmd> [input] [output] [search]')
+  .action(function (cmd, input, output, search) {
     cmdValue = cmd;
     inputValue = input;
     outputValue = output;
+    searchValue = search;
   })
   .parse(process.argv);
 
@@ -29,6 +31,10 @@ if (typeof outputValue === 'undefined') {
   process.exit(1);
 }
 
+if (typeof searchValue === 'undefined') {
+  searchValue = inputValue;
+}
+
 // console.log(cmdValue);
 // console.log(inputValue);
 // console.log(outputValue);
@@ -39,7 +45,7 @@ switch (cmdValue) {
     break;
 
   case 'similarity':
-    similarity.calculate(inputValue, outputValue);
+    similarity.calculate(inputValue, outputValue, searchValue);
     break;
 
   default:
