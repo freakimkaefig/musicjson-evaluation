@@ -16,7 +16,24 @@ commander
     outputValue = output;
     searchValue = search;
   })
+  .on('--help', function() {
+    console.log('  Commands:');
+    console.log('');
+    console.log('    convert     used for converting musicxml to json');
+    console.log('                Usage: $ node bin.js convert path/to/xmls path/to/output');
+    console.log('');
+    console.log('    similarity  used to calculate similarity');
+    console.log('                Usage: $ node bin.js similarity path/to/json path/to/output path/to/search');
+    console.log('');
+    console.log('  Examples:');
+    console.log('');
+    console.log('    $ node bin/bin.js convert xml/essen/europa/czech json/essen/europa/czech');
+    console.log('    $ node bin/bin.js similarity json/essen/europa/czech csv/essen/europa/czech');
+    console.log('    $ node bin/bin.js similarity json/essen/europa/czech csv/essen/europa/czech search/czech');
+    console.log('');
+  })
   .parse(process.argv);
+
 
 if (typeof cmdValue === 'undefined') {
   console.error('no command given!');
