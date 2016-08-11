@@ -1,0 +1,7 @@
+_trash/
+collection/
+
+*.csv
+*.xlsx
+*.sav
+*.spv

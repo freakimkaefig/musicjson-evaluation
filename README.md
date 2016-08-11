@@ -10,8 +10,10 @@ The two implemented algorithms calculate similarity scores between songsheets.
 The [MelodyShape](https://github.com/julian-urbano/MelodyShape)-Implementation
 is used from Julian Urbano.
 
-Convert songsheet
+
+Commands
 ------------------------------------------------------------
+### Convert songsheet
 
 Generate xml or midi from **kern format:
 ```
@@ -25,8 +27,7 @@ Generate json from xml:
 node bin/convert.js path/to/xml path/to/json
 ```
 
-Calculate similarity score
-------------------------------------------------------------
+### Calculate similarity score
 MelodyShape
 ```
 python bin/similarity.py [algorithm] [path/to/collection]
