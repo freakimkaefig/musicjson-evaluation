@@ -1,5 +1,17 @@
 Essen Folksong Collection
 ============================================================
+This toolbox is used to evaluate the custom implementation of the
+Mongeau-Sankoff-Measure for melodic similarity implemented in the
+[musicjson-toolbox](https://github.com/freakimkaefig/musicjson-toolbox). It
+contains functions to convert songs of the essen folksong collection in **kern
+format to midi or xml, and from xml to json.
+
+The two implemented algorithms calculate similarity scores between songsheets.
+The [MelodyShape](https://github.com/julian-urbano/MelodyShape)-Implementation
+is used from Julian Urbano.
+
+Convert songsheet
+------------------------------------------------------------
 
 Generate xml or midi from **kern format:
 ```
@@ -13,7 +25,7 @@ Generate json from xml:
 node bin/convert.js path/to/xml path/to/json
 ```
 
-Generate similarity score
+Calculate similarity score
 ------------------------------------------------------------
 MelodyShape
 ```
