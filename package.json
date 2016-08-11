@@ -14,7 +14,7 @@
     "fs": "0.0.2",
     "mkdirp": "^0.5.1",
     "musicjson": "^0.2.1",
-    "musicjson-toolbox": "^1.0.2",
+    "musicjson-toolbox": "^1.2.0",
     "musicjson2abc": "^0.5.0",
     "path": "^0.12.7"
   }
