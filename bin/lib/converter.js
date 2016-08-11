@@ -18,14 +18,14 @@ function createMusicJson (xml, outputFile, id, cb) {
 }
 
 exports.convert = function (input, output) {
-  var xmls = fs.readdirSync(path.join(__dirname, input));
+  var xmls = fs.readdirSync(input);
 
   for (var i = 0; i < xmls.length; i++) {
     var xml = xmls[i];
     var filename = path.basename(xml, '.xml');
-    var inputFile = path.join(__dirname, input, xml);
+    var inputFile = path.join(input, xml);
     var outputFile = path.normalize(path.format({
-      dir: path.join(__dirname, output),
+      dir: path.join(output),
       name: filename,
       ext: '.json'
     }));
