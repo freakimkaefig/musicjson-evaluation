@@ -22,7 +22,7 @@ in die Digrammvorschau eingefügt.
 
 Die Daten können aus der linken Spalte `Variablen` in die Diagrammvorschau eingefügt werden.
 
-![Boxplot](readme/boxplot.png "Erstellung von Boxplots für Paardifferenzen")
+![Boxplot](doc/boxplot.png "Erstellung von Boxplots für Paardifferenzen")
 
 #### Test auf Normalverteilung
 Für die Weiterverarbeitung ist die Prüfung der Paardifferenzen auf Normalverteilung erforderlich.
@@ -32,7 +32,7 @@ gewählt.
 Unter `Diagramme` muss schließlich noch der Haken bei `Normalverteilungsdiagramm mit Tests`. Als Visualisierung kann
 hier das `Histogramm` gewählt werden [1].
 
-![Shapiro-Wilk](readme/shapiro-wilk.png "Test auf Normalverteilung mit Kolmogorov-Smirnov und Shapiro-Wilk")
+![Shapiro-Wilk](doc/shapiro-wilk.png "Test auf Normalverteilung mit Kolmogorov-Smirnov und Shapiro-Wilk")
 
 Spss verwendet hierbei neben Kolmogorov-Smirnov (Signofikanzkorrektur nach Lilliefors) den Shapiro-Wilk-Test.
 
@@ -54,13 +54,13 @@ Spss verwendet hierbei neben Kolmogorov-Smirnov (Signofikanzkorrektur nach Lilli
 Im Menü `Analysieren` > `Mittelwerte vergleichen` > `t-Test bei verbundenen Stichproben`. Als Variablen werden `MS` und
 `ShapeH` verwendet, welche den einzelnen Messwerten entsprechen.
 
-![t-Test](readme/t-test_abhaengige_stichproben.png "t-Test für abhängige Stichproben")
+![t-Test](doc/t-test_abhaengige_stichproben.png "t-Test für abhängige Stichproben")
 
 
 #### Wilcoxon Paarvergleichstest
 Im Menü `Analysieren` > `Nicht parametrische Tests` > `Alte Dialogfelder` > `Zwei verbundene Stichproben`.
 
-![Wilcoxon-Test](readme/wilcoxon.png "Wilcoxon Paarvergleichstest")
+![Wilcoxon-Test](doc/wilcoxon.png "Wilcoxon Paarvergleichstest")
 
 ---
 
