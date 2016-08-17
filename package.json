@@ -1,10 +1,14 @@
 {
-  "name": "essen-folksong-collection",
+  "name": "musicjson-evaluation",
   "version": "1.0.0",
-  "description": "Files of the essen folksong collection",
-  "main": "convert.js",
+  "description": "Evaluation of melodic similarity algorithms",
+  "main": "bin/similarity.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freakimkaefig/musicjson-evaluation.git"
   },
   "author": "Lukas Lamm <info@lukaslamm.com>",
   "license": "Unlicense",
