@@ -5,34 +5,58 @@ var writer = require('./writer');
 
 var exports = module.exports = {};
 
-exports.calculate = function (input, output) {
-  var files = fs.readdirSync(input);
+exports.calculate = function (algorithm, collection, queries, output) {
+  console.log(algorithm, collection, queries, output);
+  var adjusted = algorithm === 'gar';
+  var files = fs.readdirSync(collection);
+  var queryFiles = fs.readdirSync(queries);
   var similarityMatrix = [];
   var i;
   var j;
   var length = files.length;
+  var queriesLength = queryFiles.length;
   var csv = '';
 
   // Generate similarities
   similarity = [];
-  for (i = 0; i < length; i++) {
-    var searchFile = files[i];
-    var searchJson = JSON.parse(fs.readFileSync(path.join(input, searchFile), 'utf-8'));
+  for (i = 0; i < queriesLength; i++) {
+    var queryFile = queryFiles[i];
+    var searchJson = JSON.parse(fs.readFileSync(path.join(queries, queryFile), 'utf-8'));
     similarity[i] = {
-      search: searchFile,
+      search: queryFile,
       values: []
     };
     for (j = 0; j < length; j++) {
       var file = files[j];
-      console.log("Processing: ", searchFile + " <> " + file);
-      var json = JSON.parse(fs.readFileSync(path.join(input, file), 'utf-8'));
+      console.log("Processing: ", queryFile + " <> " + file);
+      var json = JSON.parse(fs.readFileSync(path.join(collection, file), 'utf-8'));
+
+      var similarityResult;
+      switch (algorithm) {
+        case 'ms':
+          similarityResult = MusicJsonToolbox.pitchDurationSimilarity(json, searchJson, false);
+          break;
+        case 'gar':
+          similarityResult = MusicJsonToolbox.pitchDurationSimilarity(json, searchJson, true);
+          break;
+        case 'interval':
+          similarityResult = MusicJsonToolbox.intervalSimilarity(json, searchJson);
+          break;
+        case 'parson':
+          similarityResult = MusicJsonToolbox.parsonSimilarity(json, searchJson);
+          break;
+        default:
+          console.log('Unknown algorithm specified.');
+          similarityResult = -Infinity;
+          break;
+      }
+
       similarity[i].values.push({
         file: file,
-        value: MusicJsonToolbox.pitchDurationSimilarity(json, searchJson)
+        value: similarityResult
       });
     }
   }
-
 
   for (i = 0; i < similarity.length; i++) {
     similarity[i].values.sort(function(a, b) {
