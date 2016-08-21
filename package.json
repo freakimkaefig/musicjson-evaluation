@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Evaluation of melodic similarity algorithms",
   "main": "bin/similarity.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
