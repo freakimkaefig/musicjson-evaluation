@@ -29,8 +29,8 @@ commander
         console.log('');
         console.log('  Examples:');
         console.log('');
-        console.log('    node bin/similarity.js ms json/essen/europa/czech csv/output.csv');
-        console.log('    node bin/similarity.js gar json/essen/europa/czech csv/output.csv');
+        console.log('    node bin/similarity.js ms json/czech json/czech csv/output.csv');
+        console.log('    node bin/similarity.js gar json/czech json/czech csv/output.csv');
         console.log('');
     })
     .parse(process.argv);
