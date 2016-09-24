@@ -60,7 +60,7 @@ exports.calculate = function (algorithm, collection, queries, output) {
 
   for (i = 0; i < similarity.length; i++) {
     similarity[i].values.sort(function(a, b) {
-      return b.value - a.value;
+      return b.value - a.value;data1 <- read.csv("all.csv", header=TRUE, sep=";", dec=",")
     });
     for (j = 0; j < similarity[i].values.length; j++) {
       csv += similarity[i].search;
