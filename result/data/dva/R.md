@@ -47,6 +47,35 @@ rcorr(gar, shapeh, type="pearson")
 rcorr(gar, shapeh, type="spearman")
 ```
 
+Ausgabe in Datei:
+```
+# Pearson
+out <- capture.output(rcorr(ms, shapeh, type="pearson"))
+cat("Pearson correlation ms - shapeh", out, file="pearson_correlation.txt", sep="\n", append=TRUE)
+
+out <- capture.output(rcorr(gar, shapeh, type="pearson"))
+cat("Pearson correlation gar - shapeh", out, file="pearson_correlation.txt", sep="\n", append=TRUE)
+
+out <- capture.output(rcorr(interval, shapeh, type="pearson"))
+cat("Pearson correlation interval - shapeh", out, file="pearson_correlation.txt", sep="\n", append=TRUE)
+
+out <- capture.output(rcorr(parson, shapeh, type="pearson"))
+cat("Pearson correlation parson - shapeh", out, file="pearson_correlation.txt", sep="\n", append=TRUE)
+
+# Spearman
+out <- capture.output(rcorr(ms, shapeh, type="spearman"))
+cat("Spearman correlation ms - shapeh", out, file="spearman_correlation.txt", sep="\n", append=TRUE)
+
+out <- capture.output(rcorr(gar, shapeh, type="spearman"))
+cat("Spearman correlation gar - shapeh", out, file="spearman_correlation.txt", sep="\n", append=TRUE)
+
+out <- capture.output(rcorr(interval, shapeh, type="spearman"))
+cat("Spearman correlation interval - shapeh", out, file="spearman_correlation.txt", sep="\n", append=TRUE)
+
+out <- capture.output(rcorr(parson, shapeh, type="spearman"))
+cat("Spearman correlation parson - shapeh", out, file="spearman_correlation.txt", sep="\n", append=TRUE)
+```
+
 
 Quellen
 --------------------------------------------------
