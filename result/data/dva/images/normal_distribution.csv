@@ -1,0 +1,8 @@
+Tests auf Normalverteilung;;;
+;Kolmogorov-Smirnova;;
+;Statistik;df;Signifikanz
+ms_ju;0.066;11236;0.000
+gar_ju;0.041;11236;0.000
+interval_ju;0.038;11236;0.000
+parson_ju;0.088;11236;0.000
+a. Signifikanzkorrektur nach Lilliefors;;;

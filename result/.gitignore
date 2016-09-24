@@ -2,7 +2,6 @@ _trash/
 collection/
 query/
 
-*.csv
 *.xlsx
 *.sav
 *.spv
