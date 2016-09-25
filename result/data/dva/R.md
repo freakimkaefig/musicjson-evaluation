@@ -17,10 +17,18 @@ parson <- data$parson
 Scatterplots
 --------------------------------------------------
 ```
-library("plot3Drgl")
+par(mfrow=c(4,2))  # 2-column Layout
 
-par(mfrow=c(2,2))  # 4-column Layout
+# ms
+plot(ms, shapeh, main="ms vs shapeh (raw)", xlab="ms", ylab="shapeh")
+abline(lm(shapeh~ms), col=4)  # regression line
+lines(lowess(ms, shapeh), col="red")  # lowess line
 
+plot(rank(ms), rank(shapeh), main="ms vs shapeh (ranked)", xlab="ms", ylab="shapeh")
+abline(lm(rank(shapeh)~rank(ms)), col=4) # regression line
+lines(lowess(rank(ms), rank(shapeh)), col="red") # lowess line
+
+# gar
 plot(gar, shapeh, main="gar vs shapeh (raw)", xlab="gar", ylab="shapeh")
 abline(lm(shapeh~gar), col=4)  # regression line
 lines(lowess(gar, shapeh), col="red")  # lowess line
@@ -28,6 +36,30 @@ lines(lowess(gar, shapeh), col="red")  # lowess line
 plot(rank(gar), rank(shapeh), main="gar vs shapeh (ranked)", xlab="gar", ylab="shapeh")
 abline(lm(rank(shapeh)~rank(gar)), col=4) # regression line
 lines(lowess(rank(gar), rank(shapeh)), col="red") # lowess line
+
+# interval
+plot(interval, shapeh, main="interval vs shapeh (raw)", xlab="interval", ylab="shapeh")
+abline(lm(shapeh~interval), col=4)  # regression line
+lines(lowess(interval, shapeh), col="red")  # lowess line
+
+plot(rank(interval), rank(shapeh), main="interval vs shapeh (ranked)", xlab="interval", ylab="shapeh")
+abline(lm(rank(shapeh)~rank(interval)), col=4) # regression line
+lines(lowess(rank(interval), rank(shapeh)), col="red") # lowess line
+
+# parson
+plot(parson, shapeh, main="parson vs shapeh (raw)", xlab="parson", ylab="shapeh")
+abline(lm(shapeh~parson), col=4)  # regression line
+lines(lowess(parson, shapeh), col="red")  # lowess line
+
+plot(rank(parson), rank(shapeh), main="parson vs shapeh (ranked)", xlab="parson", ylab="shapeh")
+abline(lm(rank(shapeh)~rank(parson)), col=4) # regression line
+lines(lowess(rank(parson), rank(shapeh)), col="red") # lowess line
+```
+
+3D Plots
+--------------------------------------------------
+```
+library("plot3Drgl")
 
 scatter3D(gar, shapeh, data$pair, colvar=data$pair, main="gar vs shapeh (raw)", xlab="gar", ylab="shapeh", zlab="pair", bty="b2", pch=20, cex=1, ticktype="detailed", theta=120, phi=10)
 

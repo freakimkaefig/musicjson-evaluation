@@ -10,6 +10,9 @@ For general information, what the repository is about, have a look at [Project r
 
 Results
 --------------------------------------------------
+
+![scatterplots](scatterplots.png "Scatterplots")
+
 Correlations:
 
 - [Correlation coefficients](correlations.md)
