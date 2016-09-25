@@ -2,10 +2,17 @@ R
 ==================================================
 
 Read data from file
----
+--------------------------------------------------
 ```
 data <- read.csv("data.csv", header=TRUE, sep=";", dec=",")
+
+shapeh <- data$shapeh
+ms <- data$ms
+gar <- data$gar
+interval <- data$interval
+parson <- data$parson
 ```
+
 
 Scatterplots
 --------------------------------------------------
@@ -31,6 +38,7 @@ Interactive graphs:
 ```
 plotrgl()
 ```
+
 
 Correlations
 --------------------------------------------------
@@ -61,6 +69,7 @@ cat("Pearson correlation interval - shapeh", out, file="pearson_correlation.txt"
 
 out <- capture.output(rcorr(parson, shapeh, type="pearson"))
 cat("Pearson correlation parson - shapeh", out, file="pearson_correlation.txt", sep="\n", append=TRUE)
+
 
 # Spearman
 out <- capture.output(rcorr(ms, shapeh, type="spearman"))
