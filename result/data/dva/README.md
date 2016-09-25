@@ -1,4 +1,4 @@
-dva - Evaluation of Top 10
+dva - Evaluation
 ==================================================
 This subproject evaluates similarity scores for the subcollection "dva" of the Essen Folksong Collection available from [KernScores](http://kern.humdrum.org/cgi-bin/browse?l=/essen/europa).
 
