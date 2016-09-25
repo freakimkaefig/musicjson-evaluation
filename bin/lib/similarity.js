@@ -5,8 +5,8 @@ var writer = require('./writer');
 
 var exports = module.exports = {};
 
-exports.calculate = function (algorithm, collection, queries, output) {
-  console.log(algorithm, collection, queries, output);
+exports.calculate = function (algorithm, collection, queries, output, cutoff) {
+  console.log(algorithm, collection, queries, output, cutoff);
   var adjusted = algorithm === 'gar';
   var files = fs.readdirSync(collection);
   var queryFiles = fs.readdirSync(queries);
@@ -60,9 +60,10 @@ exports.calculate = function (algorithm, collection, queries, output) {
 
   for (i = 0; i < similarity.length; i++) {
     similarity[i].values.sort(function(a, b) {
-      return b.value - a.value;data1 <- read.csv("all.csv", header=TRUE, sep=";", dec=",")
+      return b.value - a.value;
     });
-    for (j = 0; j < similarity[i].values.length; j++) {
+    var rows = typeof cutoff !== 'undefined' ? cutoff : similarity[i].values.length;
+    for (j = 0; j < rows; j++) {
       csv += similarity[i].search;
       csv += '\t';
       csv += similarity[i].values[j].file;

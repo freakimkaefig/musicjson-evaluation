@@ -10,8 +10,9 @@ var outputValue;
 
 commander
     .version(require('../package.json').version)
-    .usage('<algorithm> <collection> <queries> <output>')
+    .usage('<algorithm> <collection> <queries> <output> [-c <cutoff>]')
     .arguments('<algorithm> <collection> <queries> <output>')
+    .option('-c --cutoff <cutoff>', 'number of documents to retrieve', parseInt)
     .action(function(algortithm, collection, queries, output) {
         algortithmValue = algortithm;
         collectionValue = collection;
@@ -54,4 +55,4 @@ if (typeof outputValue === 'undefined') {
     process.exit(1);
 }
 
-similarity.calculate(algortithmValue, collectionValue, queriesValue, outputValue);
+similarity.calculate(algortithmValue, collectionValue, queriesValue, outputValue, commander.cutoff);

@@ -54,6 +54,18 @@ node bin/similarity.js gar collection/json/ query/json result/data/gar.csv
 `ms` is using original Mongeau-Sankoff-Measure [[2]](#sources), where `gar` 
 is using the adjusted version by [[3]](#sources).
 
+Use cutoff (only retrieve N-top documents for a query:
+```
+# Usage:
+python bin/similarity.py <algorithm> <collection> <queries> <output> -c <cutoff>
+node bin/similarity.js <algorithm> <collection> <queries> <output> -c <cutoff>
+
+# Example
+python bin/similarity.py 2015-shapeh collection/midi/ query/midi result/data/2015-shapeh.csv -c 10
+node bin/similarity.js ms collection/json/ query/json result/data/ms.csv -c 10
+node bin/similarity.js gar collection/json/ query/json result/data/gar.csv -c 10
+```
+
 Sources
 ------------------------------------------------------------
 [1] Urbano, J. (2015). MelodyShape at MIREX 2015 Symbolic Melodic Similarity.

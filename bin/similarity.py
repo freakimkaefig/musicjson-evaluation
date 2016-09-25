@@ -2,7 +2,7 @@
 
 """
 Usage:
-    similarity.py <algorithm> <collection> <queries> <output>
+    similarity.py <algorithm> <collection> <queries> <output> [-c <cutoff>]
 
 Arguments:
 <algorithm>     The algorithm used to calculate similarity:
@@ -18,6 +18,7 @@ Arguments:
 
 Options:
     -h --help       Show this screen.
+    -c --cutoff     Number of documents to retrieve
 """
 
 import os
@@ -35,12 +36,17 @@ if __name__ == '__main__':
     collection = arguments['<collection>']
     queries = arguments['<queries>']
     output = arguments['<output>']
+    cutoff = arguments['<cutoff>']
 
     jar = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'lib',
                        'melodyshape-1.3.jar')
     outputFile = open(os.path.abspath(output), "w")
 
     for root, subFolder, files in os.walk(collection):
-        print "Processing: " + root
-        subprocess.call(['java', '-jar', jar, '-q', queries, '-c', root, '-a',
-                         algorithm], stdout=outputFile)
+        print "Processing: " + root + " retrieving " + cutoff + " documents"
+        if cutoff is not None:
+            subprocess.call(['java', '-jar', jar, '-q', queries, '-c', root, '-a',
+                            algorithm, '-k', cutoff], stdout=outputFile)
+        else:
+            subprocess.call(['java', '-jar', jar, '-q', queries, '-c', root, '-a',
+                            algorithm], stdout=outputFile)
