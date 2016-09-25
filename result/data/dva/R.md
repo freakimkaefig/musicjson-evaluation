@@ -1,7 +1,7 @@
 R
 ==================================================
 
-Daten einlesen
+Read data from file
 ---
 ```
 data <- read.csv("data.csv", header=TRUE, sep=";", dec=",")
@@ -12,34 +12,34 @@ Scatterplots
 ```
 library("plot3Drgl")
 
-par(mfrow=c(2,2))  # 4-spaltiges Layout
+par(mfrow=c(2,2))  # 4-column Layout
 
 plot(gar, shapeh, main="gar vs shapeh (raw)", xlab="gar", ylab="shapeh")
-abline(lm(shapeh~gar), col=4)  # Regressionslinie
-lines(lowess(gar, shapeh), col="red")  # LOWESS Linie
+abline(lm(shapeh~gar), col=4)  # regression line
+lines(lowess(gar, shapeh), col="red")  # lowess line
 
 plot(rank(gar), rank(shapeh), main="gar vs shapeh (ranked)", xlab="gar", ylab="shapeh")
-abline(lm(rank(shapeh)~rank(gar)), col=4) # Regressionslinie
-lines(lowess(rank(gar), rank(shapeh)), col="red") # LOWESS Linie
+abline(lm(rank(shapeh)~rank(gar)), col=4) # regression line
+lines(lowess(rank(gar), rank(shapeh)), col="red") # lowess line
 
 scatter3D(gar, shapeh, data$pair, colvar=data$pair, main="gar vs shapeh (raw)", xlab="gar", ylab="shapeh", zlab="pair", bty="b2", pch=20, cex=1, ticktype="detailed", theta=120, phi=10)
 
 scatter3D(rank(gar), rank(shapeh), data$pair, colvar=data$pair, main="gar vs shapeh (ranked)", xlab="gar", ylab="shapeh", zlab="pair", bty="b2", pch=20, cex=1, ticktype="detailed", theta=120, phi=10)
 ```
 
-Interaktiver Graph:
+Interactive graphs:
 ```
 plotrgl()
 ```
 
-Korrelationen
+Correlations
 --------------------------------------------------
-Einfacher Korrelationskoeffizient:
+Simple correlation coefficient:
 ```
 cor(gar, shapeh, method="pearson")
 cor(gar, shapeh, method="spearman")
 ```
-Mit Signifikanzniveau (zweiseitig):
+With significance (two-sided):
 ```
 library(Hmisc)
 
@@ -47,7 +47,7 @@ rcorr(gar, shapeh, type="pearson")
 rcorr(gar, shapeh, type="spearman")
 ```
 
-Ausgabe in Datei:
+Pipe output to file:
 ```
 # Pearson
 out <- capture.output(rcorr(ms, shapeh, type="pearson"))
@@ -77,7 +77,7 @@ cat("Spearman correlation parson - shapeh", out, file="spearman_correlation.txt"
 ```
 
 
-Quellen
+Sources
 --------------------------------------------------
 - http://www.sthda.com/english/wiki/impressive-package-for-3d-and-4d-graph-r-software-and-data-visualization
 - http://blog.revolutionanalytics.com/2014/02/3d-plots-in-r.html
