@@ -7,6 +7,12 @@ The top 10 pair results are compared with those from the custom implemented algo
 
 For general information, what the repository is about, have a look at [Project root](https://github.com/freakimkaefig/musicjson-evaluation).
 
+Results
+--------------------------------------------------
+Correlations:
+- [Pearson product-moment correlation coefficient](pearson_correlation.txt)
+- [Spearman's rank correlation coefficient](pearson_correlation.txt)
+
 Tutorials
 --------------------------------------------------
 The following links document evaluation steps for specific programs.
