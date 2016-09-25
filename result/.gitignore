@@ -6,3 +6,4 @@ query/
 *.sav
 *.spv
 .Rhistory
+.RData
