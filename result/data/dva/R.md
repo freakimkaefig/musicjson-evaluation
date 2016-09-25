@@ -57,32 +57,39 @@ rcorr(gar, shapeh, type="spearman")
 
 Pipe output to file:
 ```
+outfile <- "correlations.md"
+cat("", file=outfile, sep="\t", append=FALSE)
+
 # Pearson
+cat("PEARSON PRODUCT-MOMENT CORRELATION COEFFICIENT", "==============================================", "\n", file=outfile, sep="\n", append=TRUE)
+
 out <- capture.output(rcorr(ms, shapeh, type="pearson"))
-cat("Pearson correlation ms - shapeh", out, file="pearson_correlation.txt", sep="\n", append=TRUE)
+cat("Pearson correlation ms - shapeh", "----------------------------------------------", "```", out, "```", "\n", file=outfile, sep="\n", append=TRUE)
 
 out <- capture.output(rcorr(gar, shapeh, type="pearson"))
-cat("Pearson correlation gar - shapeh", out, file="pearson_correlation.txt", sep="\n", append=TRUE)
+cat("Pearson correlation gar - shapeh", "----------------------------------------------", "```", out, "```", "\n", file=outfile, sep="\n", append=TRUE)
 
 out <- capture.output(rcorr(interval, shapeh, type="pearson"))
-cat("Pearson correlation interval - shapeh", out, file="pearson_correlation.txt", sep="\n", append=TRUE)
+cat("Pearson correlation interval - shapeh", "----------------------------------------------", "```", out, "```", "\n", file=outfile, sep="\n", append=TRUE)
 
 out <- capture.output(rcorr(parson, shapeh, type="pearson"))
-cat("Pearson correlation parson - shapeh", out, file="pearson_correlation.txt", sep="\n", append=TRUE)
+cat("Pearson correlation parson - shapeh", "----------------------------------------------", "```", out, "```", "\n", file=outfile, sep="\n", append=TRUE)
 
 
 # Spearman
+cat("SPEARMAN'S RANK CORRELATION COEFFICIENT", "==============================================", "\n", file=outfile, sep="\n", append=TRUE)
+
 out <- capture.output(rcorr(ms, shapeh, type="spearman"))
-cat("Spearman correlation ms - shapeh", out, file="spearman_correlation.txt", sep="\n", append=TRUE)
+cat("Spearman correlation ms - shapeh", "----------------------------------------------", "```", out, "```", "\n", file=outfile, sep="\n", append=TRUE)
 
 out <- capture.output(rcorr(gar, shapeh, type="spearman"))
-cat("Spearman correlation gar - shapeh", out, file="spearman_correlation.txt", sep="\n", append=TRUE)
+cat("Spearman correlation gar - shapeh", "----------------------------------------------", "```", out, "```", "\n", file=outfile, sep="\n", append=TRUE)
 
 out <- capture.output(rcorr(interval, shapeh, type="spearman"))
-cat("Spearman correlation interval - shapeh", out, file="spearman_correlation.txt", sep="\n", append=TRUE)
+cat("Spearman correlation interval - shapeh", "----------------------------------------------", "```", out, "```", "\n", file=outfile, sep="\n", append=TRUE)
 
 out <- capture.output(rcorr(parson, shapeh, type="spearman"))
-cat("Spearman correlation parson - shapeh", out, file="spearman_correlation.txt", sep="\n", append=TRUE)
+cat("Spearman correlation parson - shapeh", "----------------------------------------------", "```", out, "```", "\n", file=outfile, sep="\n", append=TRUE)
 ```
 
 
