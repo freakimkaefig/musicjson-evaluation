@@ -6,7 +6,7 @@ Read data from file
 ```
 data <- read.csv("data.csv", header=TRUE, sep=";", dec=",")
 
-shapeh <- data$shapeh
+shapetime <- data$shapetime
 ms <- data$ms
 gar <- data$gar
 interval <- data$interval
@@ -20,40 +20,40 @@ Scatterplots
 par(mfrow=c(4,2))  # 2-column Layout
 
 # ms
-plot(ms, shapeh, main="ms vs shapeh (raw)", xlab="ms", ylab="shapeh")
-abline(lm(shapeh~ms), col=4)  # regression line
-lines(lowess(ms, shapeh), col="red")  # lowess line
+plot(ms, shapetime, main="ms vs shapetime (raw)", xlab="ms", ylab="shapetime")
+abline(lm(shapetime~ms), col=4)  # regression line
+lines(lowess(ms, shapetime), col="red")  # lowess line
 
-plot(rank(ms), rank(shapeh), main="ms vs shapeh (ranked)", xlab="ms", ylab="shapeh")
-abline(lm(rank(shapeh)~rank(ms)), col=4) # regression line
-lines(lowess(rank(ms), rank(shapeh)), col="red") # lowess line
+plot(rank(ms), rank(shapetime), main="ms vs shapetime (ranked)", xlab="ms", ylab="shapetime")
+abline(lm(rank(shapetime)~rank(ms)), col=4) # regression line
+lines(lowess(rank(ms), rank(shapetime)), col="red") # lowess line
 
 # gar
-plot(gar, shapeh, main="gar vs shapeh (raw)", xlab="gar", ylab="shapeh")
-abline(lm(shapeh~gar), col=4)  # regression line
-lines(lowess(gar, shapeh), col="red")  # lowess line
+plot(gar, shapetime, main="gar vs shapetime (raw)", xlab="gar", ylab="shapetime")
+abline(lm(shapetime~gar), col=4)  # regression line
+lines(lowess(gar, shapetime), col="red")  # lowess line
 
-plot(rank(gar), rank(shapeh), main="gar vs shapeh (ranked)", xlab="gar", ylab="shapeh")
-abline(lm(rank(shapeh)~rank(gar)), col=4) # regression line
-lines(lowess(rank(gar), rank(shapeh)), col="red") # lowess line
+plot(rank(gar), rank(shapetime), main="gar vs shapetime (ranked)", xlab="gar", ylab="shapetime")
+abline(lm(rank(shapetime)~rank(gar)), col=4) # regression line
+lines(lowess(rank(gar), rank(shapetime)), col="red") # lowess line
 
 # interval
-plot(interval, shapeh, main="interval vs shapeh (raw)", xlab="interval", ylab="shapeh")
-abline(lm(shapeh~interval), col=4)  # regression line
-lines(lowess(interval, shapeh), col="red")  # lowess line
+plot(interval, shapetime, main="interval vs shapetime (raw)", xlab="interval", ylab="shapetime")
+abline(lm(shapetime~interval), col=4)  # regression line
+lines(lowess(interval, shapetime), col="red")  # lowess line
 
-plot(rank(interval), rank(shapeh), main="interval vs shapeh (ranked)", xlab="interval", ylab="shapeh")
-abline(lm(rank(shapeh)~rank(interval)), col=4) # regression line
-lines(lowess(rank(interval), rank(shapeh)), col="red") # lowess line
+plot(rank(interval), rank(shapetime), main="interval vs shapetime (ranked)", xlab="interval", ylab="shapetime")
+abline(lm(rank(shapetime)~rank(interval)), col=4) # regression line
+lines(lowess(rank(interval), rank(shapetime)), col="red") # lowess line
 
 # parson
-plot(parson, shapeh, main="parson vs shapeh (raw)", xlab="parson", ylab="shapeh")
-abline(lm(shapeh~parson), col=4)  # regression line
-lines(lowess(parson, shapeh), col="red")  # lowess line
+plot(parson, shapetime, main="parson vs shapetime (raw)", xlab="parson", ylab="shapetime")
+abline(lm(shapetime~parson), col=4)  # regression line
+lines(lowess(parson, shapetime), col="red")  # lowess line
 
-plot(rank(parson), rank(shapeh), main="parson vs shapeh (ranked)", xlab="parson", ylab="shapeh")
-abline(lm(rank(shapeh)~rank(parson)), col=4) # regression line
-lines(lowess(rank(parson), rank(shapeh)), col="red") # lowess line
+plot(rank(parson), rank(shapetime), main="parson vs shapetime (ranked)", xlab="parson", ylab="shapetime")
+abline(lm(rank(shapetime)~rank(parson)), col=4) # regression line
+lines(lowess(rank(parson), rank(shapetime)), col="red") # lowess line
 ```
 
 3D Plots
@@ -61,9 +61,9 @@ lines(lowess(rank(parson), rank(shapeh)), col="red") # lowess line
 ```
 library("plot3Drgl")
 
-scatter3D(gar, shapeh, data$pair, colvar=data$pair, main="gar vs shapeh (raw)", xlab="gar", ylab="shapeh", zlab="pair", bty="b2", pch=20, cex=1, ticktype="detailed", theta=120, phi=10)
+scatter3D(gar, shapetime, data$pair, colvar=data$pair, main="gar vs shapetime (raw)", xlab="gar", ylab="shapetime", zlab="pair", bty="b2", pch=20, cex=1, ticktype="detailed", theta=120, phi=10)
 
-scatter3D(rank(gar), rank(shapeh), data$pair, colvar=data$pair, main="gar vs shapeh (ranked)", xlab="gar", ylab="shapeh", zlab="pair", bty="b2", pch=20, cex=1, ticktype="detailed", theta=120, phi=10)
+scatter3D(rank(gar), rank(shapetime), data$pair, colvar=data$pair, main="gar vs shapetime (ranked)", xlab="gar", ylab="shapetime", zlab="pair", bty="b2", pch=20, cex=1, ticktype="detailed", theta=120, phi=10)
 ```
 
 Interactive graphs:
@@ -76,15 +76,15 @@ Correlations
 --------------------------------------------------
 Simple correlation coefficient:
 ```
-cor(gar, shapeh, method="pearson")
-cor(gar, shapeh, method="spearman")
+cor(gar, shapetime, method="pearson")
+cor(gar, shapetime, method="spearman")
 ```
 With significance (two-sided):
 ```
 library(Hmisc)
 
-rcorr(gar, shapeh, type="pearson")
-rcorr(gar, shapeh, type="spearman")
+rcorr(gar, shapetime, type="pearson")
+rcorr(gar, shapetime, type="spearman")
 ```
 
 Pipe output to file:
@@ -95,33 +95,33 @@ cat("", file=outfile, sep="\t", append=FALSE)
 # Pearson
 cat("PEARSON PRODUCT-MOMENT CORRELATION COEFFICIENT", "==============================================", "\n", file=outfile, sep="\n", append=TRUE)
 
-out <- capture.output(rcorr(ms, shapeh, type="pearson"))
-cat("Pearson correlation ms - shapeh", "----------------------------------------------", "```", out, "```", "\n", file=outfile, sep="\n", append=TRUE)
+out <- capture.output(rcorr(ms, shapetime, type="pearson"))
+cat("Pearson correlation ms(x) - shapetime(y)", "----------------------------------------------", "```", out, "```", "\n", file=outfile, sep="\n", append=TRUE)
 
-out <- capture.output(rcorr(gar, shapeh, type="pearson"))
-cat("Pearson correlation gar - shapeh", "----------------------------------------------", "```", out, "```", "\n", file=outfile, sep="\n", append=TRUE)
+out <- capture.output(rcorr(gar, shapetime, type="pearson"))
+cat("Pearson correlation gar(x) - shapetime(y)", "----------------------------------------------", "```", out, "```", "\n", file=outfile, sep="\n", append=TRUE)
 
-out <- capture.output(rcorr(interval, shapeh, type="pearson"))
-cat("Pearson correlation interval - shapeh", "----------------------------------------------", "```", out, "```", "\n", file=outfile, sep="\n", append=TRUE)
+out <- capture.output(rcorr(interval, shapetime, type="pearson"))
+cat("Pearson correlation interval(x) - shapetime(y)", "----------------------------------------------", "```", out, "```", "\n", file=outfile, sep="\n", append=TRUE)
 
-out <- capture.output(rcorr(parson, shapeh, type="pearson"))
-cat("Pearson correlation parson - shapeh", "----------------------------------------------", "```", out, "```", "\n", file=outfile, sep="\n", append=TRUE)
+out <- capture.output(rcorr(parson, shapetime, type="pearson"))
+cat("Pearson correlation parson(x) - shapetime(y)", "----------------------------------------------", "```", out, "```", "\n", file=outfile, sep="\n", append=TRUE)
 
 
 # Spearman
 cat("SPEARMAN'S RANK CORRELATION COEFFICIENT", "==============================================", "\n", file=outfile, sep="\n", append=TRUE)
 
-out <- capture.output(rcorr(ms, shapeh, type="spearman"))
-cat("Spearman correlation ms - shapeh", "----------------------------------------------", "```", out, "```", "\n", file=outfile, sep="\n", append=TRUE)
+out <- capture.output(rcorr(ms, shapetime, type="spearman"))
+cat("Spearman correlation ms(x) - shapetime(y)", "----------------------------------------------", "```", out, "```", "\n", file=outfile, sep="\n", append=TRUE)
 
-out <- capture.output(rcorr(gar, shapeh, type="spearman"))
-cat("Spearman correlation gar - shapeh", "----------------------------------------------", "```", out, "```", "\n", file=outfile, sep="\n", append=TRUE)
+out <- capture.output(rcorr(gar, shapetime, type="spearman"))
+cat("Spearman correlation gar(x) - shapetime(y)", "----------------------------------------------", "```", out, "```", "\n", file=outfile, sep="\n", append=TRUE)
 
-out <- capture.output(rcorr(interval, shapeh, type="spearman"))
-cat("Spearman correlation interval - shapeh", "----------------------------------------------", "```", out, "```", "\n", file=outfile, sep="\n", append=TRUE)
+out <- capture.output(rcorr(interval, shapetime, type="spearman"))
+cat("Spearman correlation interval(x) - shapetime(y)", "----------------------------------------------", "```", out, "```", "\n", file=outfile, sep="\n", append=TRUE)
 
-out <- capture.output(rcorr(parson, shapeh, type="spearman"))
-cat("Spearman correlation parson - shapeh", "----------------------------------------------", "```", out, "```", "\n", file=outfile, sep="\n", append=TRUE)
+out <- capture.output(rcorr(parson, shapetime, type="spearman"))
+cat("Spearman correlation parson(x) - shapetime(y)", "----------------------------------------------", "```", out, "```", "\n", file=outfile, sep="\n", append=TRUE)
 ```
 
 

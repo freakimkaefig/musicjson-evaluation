@@ -2,7 +2,7 @@ PEARSON PRODUCT-MOMENT CORRELATION COEFFICIENT
 ==============================================
 
 
-Pearson correlation ms - shapeh
+Pearson correlation ms(x) - shapetime(y)
 ----------------------------------------------
 ```
      x    y
@@ -19,12 +19,12 @@ y  0
 ```
 
 
-Pearson correlation gar - shapeh
+Pearson correlation gar(x) - shapetime(y)
 ----------------------------------------------
 ```
-    x   y
-x 1.0 0.8
-y 0.8 1.0
+     x    y
+x 1.00 0.83
+y 0.83 1.00
 
 n= 11236 
 
@@ -36,7 +36,7 @@ y  0
 ```
 
 
-Pearson correlation interval - shapeh
+Pearson correlation interval(x) - shapetime(y)
 ----------------------------------------------
 ```
      x    y
@@ -53,12 +53,12 @@ y  0
 ```
 
 
-Pearson correlation parson - shapeh
+Pearson correlation parson(x) - shapetime(y)
 ----------------------------------------------
 ```
-     x    y
-x 1.00 0.52
-y 0.52 1.00
+    x   y
+x 1.0 0.5
+y 0.5 1.0
 
 n= 11236 
 
@@ -74,12 +74,12 @@ SPEARMAN'S RANK CORRELATION COEFFICIENT
 ==============================================
 
 
-Spearman correlation ms - shapeh
+Spearman correlation ms(x) - shapetime(y)
 ----------------------------------------------
 ```
-     x    y
-x 1.00 0.05
-y 0.05 1.00
+      x     y
+x  1.00 -0.04
+y -0.04  1.00
 
 n= 11236 
 
@@ -91,29 +91,29 @@ y  0
 ```
 
 
-Spearman correlation gar - shapeh
+Spearman correlation gar(x) - shapetime(y)
 ----------------------------------------------
 ```
-      x     y
-x  1.00 -0.03
-y -0.03  1.00
+     x    y
+x 1.00 0.01
+y 0.01 1.00
 
 n= 11236 
 
 
 P
   x      y     
-x        0.0049
-y 0.0049       
+x        0.5032
+y 0.5032       
 ```
 
 
-Spearman correlation interval - shapeh
+Spearman correlation interval(x) - shapetime(y)
 ----------------------------------------------
 ```
      x    y
-x 1.00 0.28
-y 0.28 1.00
+x 1.00 0.24
+y 0.24 1.00
 
 n= 11236 
 
@@ -125,12 +125,12 @@ y  0
 ```
 
 
-Spearman correlation parson - shapeh
+Spearman correlation parson(x) - shapetime(y)
 ----------------------------------------------
 ```
      x    y
-x 1.00 0.26
-y 0.26 1.00
+x 1.00 0.14
+y 0.14 1.00
 
 n= 11236 
 
