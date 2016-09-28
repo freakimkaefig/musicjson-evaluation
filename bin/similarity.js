@@ -7,12 +7,21 @@ var algortithmValue;
 var collectionValue;
 var queriesValue;
 var outputValue;
+var k = [];
+
+function collect(value, memo) {
+    memo.push(parseFloat(value));
+    return memo;
+}
 
 commander
     .version(require('../package.json').version)
-    .usage('<algorithm> <collection> <queries> <output> [-c <cutoff>]')
+    .usage('<algorithm> <collection> <queries> <output> [-c <cutoff>] [-k1 <value>] [-k2 <value>] [-k3 <value>]')
     .arguments('<algorithm> <collection> <queries> <output>')
     .option('-c --cutoff <cutoff>', 'number of documents to retrieve', parseInt)
+    .option('-k --constant [values]', 'algorithm parameters', collect, [])
+    // .option('-k2 --k2 <value>', 'algorithm parameter k2', parseFloat)
+    // .option('-k3 --k3 <value>', 'algorithm parameter k3', parseFloat)
     .action(function(algortithm, collection, queries, output) {
         algortithmValue = algortithm;
         collectionValue = collection;
@@ -55,4 +64,13 @@ if (typeof outputValue === 'undefined') {
     process.exit(1);
 }
 
-similarity.calculate(algortithmValue, collectionValue, queriesValue, outputValue, commander.cutoff);
+similarity.calculate(
+  algortithmValue,
+  collectionValue,
+  queriesValue,
+  outputValue,
+  commander.cutoff,
+  commander.constant[0],
+  commander.constant[1],
+  commander.constant[2]
+);

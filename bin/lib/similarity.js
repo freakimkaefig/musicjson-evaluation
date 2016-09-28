@@ -5,8 +5,7 @@ var writer = require('./writer');
 
 var exports = module.exports = {};
 
-exports.calculate = function (algorithm, collection, queries, output, cutoff) {
-  console.log(algorithm, collection, queries, output, cutoff);
+exports.calculate = function (algorithm, collection, queries, output, cutoff, k1, k2, k3) {
   var adjusted = algorithm === 'gar';
   var files = fs.readdirSync(collection);
   var queryFiles = fs.readdirSync(queries);
@@ -16,6 +15,22 @@ exports.calculate = function (algorithm, collection, queries, output, cutoff) {
   var length = files.length;
   var queriesLength = queryFiles.length;
   var csv = '';
+
+  if (adjusted) {
+    if (typeof k1 !== 'undefined') {
+      MusicJsonToolbox.globalK1 = k1;
+    }
+    if (typeof k2 !== 'undefined') {
+      MusicJsonToolbox.globalK2 = k2;
+    }
+    if (typeof k3 !== 'undefined') {
+      MusicJsonToolbox.globalK3 = k3;
+    }
+  } else {
+    if (typeof k1 !== 'undefined') {
+      MusicJsonToolbox.globalK = k1;
+    }
+  }
 
   // Generate similarities
   similarity = [];
@@ -74,4 +89,12 @@ exports.calculate = function (algorithm, collection, queries, output, cutoff) {
   }
 
   writer.writeFile(output, csv);
+
+  console.log("Calculated '" + algorithm + "' with:");
+  console.log("    - cutoff: " + cutoff);
+  console.log("    - k: " + MusicJsonToolbox.globalK);
+  console.log("    - k1: " + MusicJsonToolbox.globalK1);
+  console.log("    - k2: " + MusicJsonToolbox.globalK2);
+  console.log("    - k3: " + MusicJsonToolbox.globalK3);
+  console.log("Written output to", output);
 };
