@@ -17,6 +17,7 @@ parson <- data$parson
 Scatterplots
 --------------------------------------------------
 ```
+png(filename="scatterplots.png", width = 8, height = 14, units = 'in', res = 300)
 par(mfrow=c(4,2))  # 2-column Layout
 
 # ms
@@ -54,6 +55,8 @@ lines(lowess(parson, shapetime), col="red")  # lowess line
 plot(rank(parson), rank(shapetime), main="parson vs shapetime (ranked)", xlab="parson", ylab="shapetime")
 abline(lm(rank(shapetime)~rank(parson)), col=4) # regression line
 lines(lowess(rank(parson), rank(shapetime)), col="red") # lowess line
+
+dev.off()
 ```
 
 3D Plots

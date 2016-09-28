@@ -10,11 +10,18 @@ For general information, what the repository is about, have a look at [Project r
 Results
 --------------------------------------------------
 
-![scatterplots](scatterplots.png "Scatterplots")
+### Original k, k1 & k3
 
-Correlations:
+![scatterplots](original/scatterplots.png "Scatterplots")
 
-- [Correlation coefficients](correlations.md)
+Correlations: [Original k](original/correlations.md)
+
+### Original k, k1 & k3
+
+![scatterplots](adjusted/scatterplots.png "Scatterplots")
+
+Correlations: [Adjusted k](adjusted/correlations.md)
+
 
 
 Tutorials
