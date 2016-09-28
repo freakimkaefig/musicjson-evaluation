@@ -43,10 +43,11 @@ if __name__ == '__main__':
     outputFile = open(os.path.abspath(output), "w")
 
     for root, subFolder, files in os.walk(collection):
-        print "Processing: " + root + " retrieving " + cutoff + " documents"
         if cutoff is not None:
+            print "Processing: " + root + " retrieving " + cutoff + " documents"
             subprocess.call(['java', '-jar', jar, '-q', queries, '-c', root, '-a',
                             algorithm, '-k', cutoff], stdout=outputFile)
         else:
+            print "Processing: " + root + " retrieving all documents"
             subprocess.call(['java', '-jar', jar, '-q', queries, '-c', root, '-a',
                             algorithm], stdout=outputFile)
