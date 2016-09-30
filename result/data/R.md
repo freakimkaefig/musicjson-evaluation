@@ -13,48 +13,40 @@ interval <- data$interval
 parson <- data$parson
 ```
 
+Histogram
+--------------------------------------------------
+```
+pdf("histogram_shapetime.pdf", width = 12, height = 9)
+par(mar=c(5,5,0,0))
+hist(shapetime, breaks=106, angle=45, density=25, xlab="Melodic Similarity Score", ylab="Häufigkeit", cex.lab=1.2, main=NULL)
+dev.off()
+```
 
 Scatterplots
 --------------------------------------------------
 ```
-png(filename="scatterplots.png", width = 8, height = 14, units = 'in', res = 300)
-par(mfrow=c(4,2))  # 2-column Layout
+pdf("original_scatterplots.pdf", width = 8, height = 8)
+par(mfrow=c(2,2))  # 2-column Layout
 
 # ms
-plot(ms, shapetime, main="ms vs shapetime (raw)", xlab="ms", ylab="shapetime")
+plot(ms, shapetime, main="ms - shapetime", xlab="ms", ylab="2015-shapetime")
 abline(lm(shapetime~ms), col=4)  # regression line
 lines(lowess(ms, shapetime), col="red")  # lowess line
 
-plot(rank(ms), rank(shapetime), main="ms vs shapetime (ranked)", xlab="ms", ylab="shapetime")
-abline(lm(rank(shapetime)~rank(ms)), col=4) # regression line
-lines(lowess(rank(ms), rank(shapetime)), col="red") # lowess line
-
 # gar
-plot(gar, shapetime, main="gar vs shapetime (raw)", xlab="gar", ylab="shapetime")
+plot(gar, shapetime, main="gar - shapetime", xlab="gar", ylab="2015-shapetime")
 abline(lm(shapetime~gar), col=4)  # regression line
 lines(lowess(gar, shapetime), col="red")  # lowess line
 
-plot(rank(gar), rank(shapetime), main="gar vs shapetime (ranked)", xlab="gar", ylab="shapetime")
-abline(lm(rank(shapetime)~rank(gar)), col=4) # regression line
-lines(lowess(rank(gar), rank(shapetime)), col="red") # lowess line
-
 # interval
-plot(interval, shapetime, main="interval vs shapetime (raw)", xlab="interval", ylab="shapetime")
+plot(interval, shapetime, main="interval - shapetime", xlab="interval", ylab="2015-shapetime")
 abline(lm(shapetime~interval), col=4)  # regression line
 lines(lowess(interval, shapetime), col="red")  # lowess line
 
-plot(rank(interval), rank(shapetime), main="interval vs shapetime (ranked)", xlab="interval", ylab="shapetime")
-abline(lm(rank(shapetime)~rank(interval)), col=4) # regression line
-lines(lowess(rank(interval), rank(shapetime)), col="red") # lowess line
-
 # parson
-plot(parson, shapetime, main="parson vs shapetime (raw)", xlab="parson", ylab="shapetime")
+plot(parson, shapetime, main="parson - shapetime", xlab="parson", ylab="2015-shapetime")
 abline(lm(shapetime~parson), col=4)  # regression line
 lines(lowess(parson, shapetime), col="red")  # lowess line
-
-plot(rank(parson), rank(shapetime), main="parson vs shapetime (ranked)", xlab="parson", ylab="shapetime")
-abline(lm(rank(shapetime)~rank(parson)), col=4) # regression line
-lines(lowess(rank(parson), rank(shapetime)), col="red") # lowess line
 
 dev.off()
 ```
@@ -134,3 +126,5 @@ Sources
 - http://blog.revolutionanalytics.com/2014/02/3d-plots-in-r.html
 - http://www.statmethods.net/graphs/scatterplot.html
 - http://www.statmethods.net/stats/correlations.html
+- https://de.wikibooks.org/wiki/GNU_R:_hist
+- https://de.wikibooks.org/wiki/GNU_R:_plot

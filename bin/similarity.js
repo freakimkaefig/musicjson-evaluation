@@ -16,12 +16,10 @@ function collect(value, memo) {
 
 commander
     .version(require('../package.json').version)
-    .usage('<algorithm> <collection> <queries> <output> [-c <cutoff>] [-k1 <value>] [-k2 <value>] [-k3 <value>]')
+    .usage('<algorithm> <collection> <queries> <output> [-c <cutoff>] [-k <value> [-k <value> [-k <value>]]]')
     .arguments('<algorithm> <collection> <queries> <output>')
     .option('-c --cutoff <cutoff>', 'number of documents to retrieve', parseInt)
-    .option('-k --constant [values]', 'algorithm parameters', collect, [])
-    // .option('-k2 --k2 <value>', 'algorithm parameter k2', parseFloat)
-    // .option('-k3 --k3 <value>', 'algorithm parameter k3', parseFloat)
+    .option('-k --constant [value]', 'algorithm parameters (k1, k2, k3)', collect, [])
     .action(function(algortithm, collection, queries, output) {
         algortithmValue = algortithm;
         collectionValue = collection;
