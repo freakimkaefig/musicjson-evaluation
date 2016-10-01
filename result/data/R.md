@@ -13,12 +13,52 @@ interval <- data$interval
 parson <- data$parson
 ```
 
-Histogram
+Histogramme
 --------------------------------------------------
 ```
 pdf("histogram_shapetime.pdf", width = 12, height = 9)
 par(mar=c(5,5,0,0))
-hist(shapetime, breaks=106, angle=45, density=25, xlab="Melodic Similarity Score", ylab="Häufigkeit", cex.lab=1.2, main=NULL)
+g <- shapetime
+h <- hist(g, breaks=212, angle=45, density=25, xlab="Melodic Similarity Score", ylab="Häufigkeit", cex.lab=1.2, main=NULL)
+xfit <- seq(min(g), max(g), length=106)
+yfit <- dnorm(xfit, mean=mean(g), sd=sd(g))
+yfit <- yfit*diff(h$mids[1:2])*length(g)
+lines(xfit, yfit, col="blue", lwd=2)
+dev.off()
+```
+
+Mit Anpassungs-Kurve:
+```
+pdf("histograms.pdf", width = 12, height = 9)
+par(mfrow=c(2,2))  # 2-column Layout
+g <- ms
+h <- hist(g, breaks=212, angle=45, density=25, xlab="Melodic Similarity Score", ylab="Häufigkeit", cex.lab=1.2, main=NULL)
+xfit <- seq(min(g), max(g), length=212)
+yfit <- dnorm(xfit, mean=mean(g), sd=sd(g))
+yfit <- yfit*diff(h$mids[1:2])*length(g)
+lines(xfit, yfit, col="blue", lwd=2)
+
+g <- gar
+h <- hist(g, breaks=212, angle=45, density=25, xlab="Melodic Similarity Score", ylab="Häufigkeit", cex.lab=1.2, main=NULL)
+xfit <- seq(min(g), max(g), length=212)
+yfit <- dnorm(xfit, mean=mean(g), sd=sd(g))
+yfit <- yfit*diff(h$mids[1:2])*length(g)
+lines(xfit, yfit, col="blue", lwd=2)
+
+g <- interval
+h <- hist(g, breaks=212, angle=45, density=25, xlab="Melodic Similarity Score", ylab="Häufigkeit", cex.lab=1.2, main=NULL)
+xfit <- seq(min(g), max(g), length=212)
+yfit <- dnorm(xfit, mean=mean(g), sd=sd(g))
+yfit <- yfit*diff(h$mids[1:2])*length(g)
+lines(xfit, yfit, col="blue", lwd=2)
+
+g <- parson
+h <- hist(g, breaks=212, angle=45, density=25, xlab="Melodic Similarity Score", ylab="Häufigkeit", cex.lab=1.2, main=NULL)
+xfit <- seq(min(g), max(g), length=212)
+yfit <- dnorm(xfit, mean=mean(g), sd=sd(g))
+yfit <- yfit*diff(h$mids[1:2])*length(g)
+lines(xfit, yfit, col="blue", lwd=2)
+
 dev.off()
 ```
 
