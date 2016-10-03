@@ -23,39 +23,41 @@ Deskriptive Statistik
     ## shapetime -0.321  -0.097  -0.051 0.047  -0.016  6.551  0.696  
     ## --------------------------------------------------------------
 
+![](README_files/figure-markdown_github/unnamed-chunk-3-1.png)
+
 Histogramme
 -----------
 
 ### Mongeau & Sankoff (1990) (ms)
 
-![](README_files/figure-markdown_github/unnamed-chunk-3-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-4-1.png)
 
 ### Gómez, Abad-Mota, & Ruckhaus (2007) (gar)
 
-![](README_files/figure-markdown_github/unnamed-chunk-4-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-5-1.png)
 
 ### Intervalfolgen (interval) & Parson's Code Zeichenketten (parson)
 
-![](README_files/figure-markdown_github/unnamed-chunk-5-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-6-1.png)
 
 ### Urbano (2015), ShapeTime (shapetime)
 
-![](README_files/figure-markdown_github/unnamed-chunk-6-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-7-1.png)
 
 Scatterplots
 ------------
 
 ### Mongeau & Sankoff (1990) (ms)
 
-![](README_files/figure-markdown_github/unnamed-chunk-7-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-8-1.png)
 
 ### Gómez et al. (2007) (gar)
 
-![](README_files/figure-markdown_github/unnamed-chunk-8-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-9-1.png)
 
 ### Intervalfolgen (interval) & Parson's Code Zeichenketten (parson)
 
-![](README_files/figure-markdown_github/unnamed-chunk-9-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-10-1.png)
 
 Korrelations-Koeffizienten nach Spearman
 ----------------------------------------

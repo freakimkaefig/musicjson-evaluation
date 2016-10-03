@@ -42,6 +42,10 @@ cols <- c('ms', 'gar', 'interval', 'parson', 'shapetime')
 stargazer(df[, cols], type="text", summary.stat = c ("min", "p25", "median", "mean", "p75", "max", "sd"))
 ```
 
+```{r, echo=FALSE, fig.height=15}
+par(mar=c(12, 2, 1, 1))
+boxplot(o_ms, a_ms, o_gar, a_gar, o_interval, o_parson, shapetime, data=o_data, names=c("ms (Standard Parameter)", "ms (Angepasste Parameter)", "gar (Standard Parameter)", "gar (Angepasste Parameter)", "interval", "parson", "shapetime"), las=2, at=c(1,2,4,5,7,9,11), col=c("red", "green", "red", "green", "green", "green", "green"))
+```
 
 ## Histogramme
 
@@ -188,5 +192,6 @@ rcorr(o_interval, shapetime, type="spearman")
 ```{r, echo=FALSE}
 rcorr(o_parson, shapetime, type="spearman")
 ```
+
 
 ## Literatur
