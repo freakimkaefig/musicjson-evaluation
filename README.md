@@ -22,9 +22,9 @@ Commands
 
 Generate xml or midi from **kern format:
 ```
-python bin/convert2mid.py kern/czech midi/czech
+python bin/convert.py kern/czech midi/czech --midi
 
-python bin/convert2xml.py kern/czech xml/czech
+python bin/convert.py kern/czech xml/czech --xml
 ```
 
 Generate json from xml:
@@ -36,7 +36,7 @@ node bin/convert.js path/to/xml path/to/json
 MelodyShape:
 ```
 # Usage:
-python bin/similarity.py <algorithm> <collection> <queries> <output>
+python bin/similarity.py <algorithm> <collection> <queries> <output> [-c <cutoff>]
 
 # Example: 2015-ShapeH with demo collection
 python bin/similarity.py 2015-shapeh collection/midi/ query/midi result/data/2015-shapeh.csv
@@ -45,7 +45,7 @@ python bin/similarity.py 2015-shapeh collection/midi/ query/midi result/data/201
 Mongeau-Sankoff:
 ```
 # Usage:
-node bin/similarity.js <algorithm> <collection> <queries> <output>
+node bin/similarity.js <algorithm> <collection> <queries> <output> [-c <cutoff>] [-k <value> [-k <value> [-k <value>]]]
 
 # Example
 node bin/similarity.js ms collection/json/ query/json result/data/ms.csv
@@ -64,6 +64,18 @@ node bin/similarity.js <algorithm> <collection> <queries> <output> -c <cutoff>
 python bin/similarity.py 2015-shapeh collection/midi/ query/midi result/data/2015-shapeh.csv -c 10
 node bin/similarity.js ms collection/json/ query/json result/data/ms.csv -c 10
 node bin/similarity.js gar collection/json/ query/json result/data/gar.csv -c 10
+```
+
+Use k parameters for adjustment. 
+`ms` only uses one parameter, 
+`gar` is currently only using `k1` and `k3` but `k2` is included for future consistency:
+```
+# Usage:
+node bin/similarity.js <algorithm> <collection> <queries> <output> -k <value> -k <value> -k <value>
+
+# Example
+node bin/similarity.js ms collection/json/ query/json result/data/ms.csv -k 0.1
+node bin/similarity.js gar collection/json/ query/json result/data/gar.csv -k 0.1 -k 0.2 -k 0.3
 ```
 
 Sources
