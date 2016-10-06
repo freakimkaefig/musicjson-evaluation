@@ -11,7 +11,7 @@ For general information, what the repository is about, have a look at [Project r
 Results
 --------------------------------------------------
 
-![scatterplots](scatterplots.png "Scatterplots")
+![scatterplots](top10_scatterplots.png "Scatterplots")
 
 Correlations:
 
