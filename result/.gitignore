@@ -1,6 +1,5 @@
 _trash/
 collection/
-query/
 
 *.xlsx
 *.sav
@@ -8,4 +7,4 @@ query/
 .Rhistory
 .RData
 
-Archiv/
+.Archiv/
