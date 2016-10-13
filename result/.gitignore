@@ -1,9 +1,6 @@
 _trash/
 collection/
 
-*.xlsx
-*.sav
-*.spv
 .Rhistory
 .RData
 
